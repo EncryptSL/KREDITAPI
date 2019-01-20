@@ -1,0 +1,15 @@
+main: org.EncryptSL.kredit.api.KreditMainClass
+name: KREDITAPI
+version: ${project.version}
+author: EncryptSL
+authors: [EncryptSL]
+api-version: 1.13
+
+commands:
+  kredit:
+    description: Main Command for this plugin
+
+permissions:
+  kredit.admin.*:
+    default: op
+    description: Give all access for kredit commands !

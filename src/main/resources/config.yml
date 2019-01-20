@@ -1,0 +1,43 @@
+Database:
+  MySQL:
+    DATABASE: 'jdbc:mysql://localhost:3306/root'
+    USERNAME: 'root'
+    PASSWORD: 'root'
+PluginAPI:
+  MESSAGE:
+    SETTINGS:
+      PLUGIN_PREFIX: '&f[&aKREDITAPI&f]'
+    PLAYER:
+      ACCOUNT_NO_EXIST: '&cYou have no created account, Please contact Administrator of this server !'
+      PLAYER_ACCOUNT_EXIST: '&cYour account now exist !'
+      BALANCE: 'You have &a[kredit] &fkredits !'
+      NOTIFY_ADDED_PLAYER_KREDIT: '&fYou recivied from &cAdmin &a [kredit] &fkredits, now your balance is &a[new_balance] &fkredits.'
+      NOTIFY_SET_PLAYER_KREDIT: '&fAdmin set your account on value &a[kredit] &fkredits, now your balance is &a [new_balance] &fkredits'
+      NOTIFY_REMOVE_PLAYER_KREDIT: '&fAdmin remove from your account &a[kredit] &fkredits, now your balance is &a [new_balance] &fkredits'
+      NOTIFY_CREATE_PLAYER_ACCOUNT: '&fAdmin create your kredit account !, You can now use command /kredit !'
+    ADMIN:
+      YOU_ADD_KREDIT: '&b+ &fYou added &a [kredit] &fkredits for player &e[target] &f!'
+      YOU_SET_KREDIT: '&b+ &fYou set &a [kredit] &fkredits for player &e[target] &f!'
+      YOU_REMOVE_KREDIT: '&b+ &fYou remove &a [kredit] &fkredits from player &e[target] &faccount !'
+      YOU_CREATE_KREDIT_ACCOUNT: '&b+ &fYou create account kredit for player &e[target]'
+      PLAYER_OFFLINE: '&cPlayer is offline !'
+    COMMANDS:
+      NO_PERMISSIONS: '&cYou dont have permissions for this command !'
+      MENU_COMMAND:
+        - '&6[&4++ &e-- &aKREDITS ADMIN COMMANDS &e-- &4++&6]'
+        - '&b+ &7/&bkredit &e- &5Write Main Commands'
+        - '&b+ &7/&bkredit add [player|value] &e- &5Add Kredits for Player'
+        - '&b+ &7/&bkredit set [player|value] &e- &5Set Kredits for Player'
+        - '&b+ &7/&bkredit remove [player|value] &e- &5Remove Kredits for Player'
+        - '&b+ &7/&bkredit create [player] &e- &5Create Account for Player'
+        - '&6[&4++ &e-- &aKREDITS ADMIN COMMANDS &e-- &4++&6]'
+      WRONG_USAGE:
+        WRONG_FIRST:
+          ADD_COMMAND: '&b+ &7/&bkredit add [&cplayer&7|&cvalue&f]'
+          SET_COMMAND: '&b+ &7/&bkredit set [&cplayer&7|&cvalue&f]'
+          REMOVE_COMMAND: '&b+ &7/&bkredit remove [&cplayer&7|&cvalue&f]'
+          CREATE_COMMAND: '&b+ &7/&bkredit create [&cplayer&f]'
+        WRONG_SECOND:
+          ADD_COMMAND: '&b+ &7/&bkredit add [&aplayer&7|&cvalue&f]'
+          SET_COMMAND: '&b+ &7/&bkredit set [&aplayer&7|&cvalue&f]'
+          REMOVE_COMMAND: '&b+ &7/&bkredit remove [&aplayer&7|&cvalue&f]'

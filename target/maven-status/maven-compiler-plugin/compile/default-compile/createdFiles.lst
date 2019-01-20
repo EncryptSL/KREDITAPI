@@ -3,6 +3,7 @@ org\EncryptSL\kredit\api\API\COLOR_REPLACE.class
 org\EncryptSL\kredit\api\Kredit\SQL_SELECTOR.class
 org\EncryptSL\kredit\api\Kredit\SQL_SELECTOR$2.class
 org\EncryptSL\kredit\api\API\FROM_CONFIG.class
+org\EncryptSL\kredit\api\API\INTEGER_CONTROLER.class
 org\EncryptSL\kredit\api\MySQL\Connector.class
 org\EncryptSL\kredit\api\Kredit\SQL_SELECTOR$1.class
 org\EncryptSL\kredit\api\KreditMainClass.class

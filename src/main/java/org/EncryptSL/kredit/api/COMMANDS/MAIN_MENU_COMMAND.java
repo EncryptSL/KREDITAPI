@@ -1,7 +1,7 @@
 package org.EncryptSL.kredit.api.COMMANDS;
 
-import org.EncryptSL.kredit.api.API.COLOR_REPLACE;
 import org.EncryptSL.kredit.api.API.FROM_CONFIG;
+import org.EncryptSL.kredit.api.API.INTEGER_CONTROLER;
 import org.EncryptSL.kredit.api.Kredit.SQL_SELECTOR;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class MAIN_MENU_COMMAND implements CommandExecutor {
 
-    private static COLOR_REPLACE color_replace = new COLOR_REPLACE();
+    private static INTEGER_CONTROLER integerControler = new INTEGER_CONTROLER();
     private static SQL_SELECTOR kredits = new SQL_SELECTOR();
     private static FROM_CONFIG config = new FROM_CONFIG();
 
@@ -76,34 +76,46 @@ public class MAIN_MENU_COMMAND implements CommandExecutor {
                     if (commandSender.hasPermission("KreditAPI.admin.*")) {
                         if(strings[0].equalsIgnoreCase("add")) {
                         Player target = Bukkit.getPlayer(strings[1]);
-                            int value = Integer.parseInt(strings[2]);
                             if(target != null) {
-                                int new_balance = kredits.NEW_BALANCE(uuid, value);
-                                kredits.ADD_KREDIT(target.getUniqueId(), value);
-                                        config.B_CONFIG_MESSAGE("ADMIN.YOU_ADD_KREDIT", player, target, value, new_balance);
-                                        config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_ADDED_PLAYER_KREDIT", player, target, value, new_balance);
-                        } else {
+                                if(integerControler.isInt(strings[2])) {
+                                    int value = Integer.parseInt(strings[2]);
+                                    int new_balance = kredits.NEW_BALANCE(uuid, value);
+                                    kredits.ADD_KREDIT(target.getUniqueId(), value);
+                                    config.B_CONFIG_MESSAGE("ADMIN.YOU_ADD_KREDIT", player, target, value, new_balance);
+                                    config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_ADDED_PLAYER_KREDIT", player, target, value, new_balance);
+                                } else {
+                                    player.sendMessage("Must be number no string !");
+                                }
+                            } else {
                                         config.C_CONFIG_STRING_MESSAGE_NORMAL("ADMIN.PLAYER_OFFLINE", player);
-                        }
+                            }
                     } else if(strings[0].equalsIgnoreCase("set")) {
                         Player target = Bukkit.getPlayer(strings[1]);
-                        int value = Integer.parseInt(strings[2]);
                         if(target != null) {
-                            int new_balance = kredits.NEW_BALANCE(uuid, value);
-                            kredits.SET_KREDIT(target.getUniqueId(), value);
-                                    config.B_CONFIG_MESSAGE("ADMIN.YOU_SET_KREDIT", player, target, value, new_balance);
-                                    config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_SET_PLAYER_KREDIT", player, target, value, new_balance);
+                            if(integerControler.isInt(strings[2])) {
+                                int value = Integer.parseInt(strings[2]);
+                                int new_balance = kredits.NEW_BALANCE(uuid, value);
+                                kredits.SET_KREDIT(target.getUniqueId(), value);
+                                config.B_CONFIG_MESSAGE("ADMIN.YOU_SET_KREDIT", player, target, value, new_balance);
+                                config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_SET_PLAYER_KREDIT", player, target, value, new_balance);
+                            } else {
+                                player.sendMessage("Must be number no string !");
+                            }
                         } else {
                                     config.C_CONFIG_STRING_MESSAGE_NORMAL("ADMIN.PLAYER_OFFLINE", player);
                         }
                     }else if(strings[0].equalsIgnoreCase("remove")) {
                         Player target = Bukkit.getPlayer(strings[1]);
-                        int value = Integer.parseInt(strings[2]);
                         if (target != null) {
-                            int new_balance = kredits.NEW_BALANCE(uuid, value);
-                            kredits.REMOVE_KREDIT(target.getUniqueId(), value);
-                                    config.B_CONFIG_MESSAGE("ADMIN.YOU_SET_KREDIT", player, target, value, new_balance);
-                                    config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_SET_PLAYER_KREDIT", player, target, value, new_balance);
+                            if(integerControler.isInt(strings[2])) {
+                                int value = Integer.parseInt(strings[2]);
+                                int new_balance = kredits.NEW_BALANCE(uuid, value);
+                                kredits.REMOVE_KREDIT(target.getUniqueId(), value);
+                                config.B_CONFIG_MESSAGE("ADMIN.YOU_REMOVE_KREDIT", player, target, value, new_balance);
+                                config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_REMOVE_PLAYER_KREDIT", player, target, value, new_balance);
+                            } else {
+                                player.sendMessage("Must be number no string !");
+                            }
                         } else {
                                     config.C_CONFIG_STRING_MESSAGE_NORMAL("ADMIN.PLAYER_OFFLINE", player);
                         }

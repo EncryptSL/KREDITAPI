@@ -94,10 +94,9 @@ public class MAIN_MENU_COMMAND implements CommandExecutor {
                         if(target != null) {
                             if(integerControler.isInt(strings[2])) {
                                 int value = Integer.parseInt(strings[2]);
-                                int new_balance = kredits.NEW_BALANCE(uuid, value);
                                 kredits.SET_KREDIT(target.getUniqueId(), value);
-                                config.B_CONFIG_MESSAGE("ADMIN.YOU_SET_KREDIT", player, target, value, new_balance);
-                                config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_SET_PLAYER_KREDIT", player, target, value, new_balance);
+                                config.B_CONFIG_MESSAGE("ADMIN.YOU_SET_KREDIT", player, target, value, value);
+                                config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_SET_PLAYER_KREDIT", player, target, value, value);
                             } else {
                                 player.sendMessage("Must be number no string !");
                             }
@@ -109,7 +108,7 @@ public class MAIN_MENU_COMMAND implements CommandExecutor {
                         if (target != null) {
                             if(integerControler.isInt(strings[2])) {
                                 int value = Integer.parseInt(strings[2]);
-                                int new_balance = kredits.NEW_BALANCE(uuid, value);
+                                int new_balance = kredits.NEW_BALANCE_MINUS(uuid, value);
                                 kredits.REMOVE_KREDIT(target.getUniqueId(), value);
                                 config.B_CONFIG_MESSAGE("ADMIN.YOU_REMOVE_KREDIT", player, target, value, new_balance);
                                 config.B_CONFIG_MESSAGE("PLAYER.NOTIFY_REMOVE_PLAYER_KREDIT", player, target, value, new_balance);

@@ -241,4 +241,9 @@ public class SQL_SELECTOR {
         int current_balance = GET_PLAYER_KREDIT(uuid) + Value;
         return current_balance;
     }
+
+    public int NEW_BALANCE_MINUS(UUID uuid, int Value) {
+        int current_balance = GET_PLAYER_KREDIT(uuid) - Value;
+        return current_balance;
+    }
 }
